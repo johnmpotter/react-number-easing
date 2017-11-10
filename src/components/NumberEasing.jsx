@@ -93,7 +93,7 @@ export default class NumberEasing extends React.Component {
 
   render() {
 
-    let { className, useLocaleString, ...other } = this.props;
+    let { className, useLocaleString, value, speed, ease, delayValue, ...other } = this.props;
     let { displayValue } = this.state;
 
     let classes = 'react-number-easing';
