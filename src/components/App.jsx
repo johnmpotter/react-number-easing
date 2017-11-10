@@ -31,6 +31,6 @@ export default class App extends React.Component {
       this.setState({
         value: getRandomInteger(),
       });
-    }, 2000);
+    }, 3000);
   }
 }

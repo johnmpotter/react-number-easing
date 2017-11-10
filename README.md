@@ -23,3 +23,5 @@ import NumberEasing from './react-number-easing.jsx';
 * Git clone or download
 * npm install
 * npm start
+* go to localhost:3000 in a browser
+
