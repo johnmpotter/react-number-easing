@@ -14,7 +14,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div style={{ textAlign: 'center' }}>
-        <h1>NumberEasing</h1>        
+        <h1>React Number Easing</h1>        
         <NumberEasing
           value={this.state.value}
           speed={1000}
