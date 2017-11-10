@@ -1,12 +1,26 @@
 {
   "name": "react-number-easing",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "React component for fancy transition for numbers.",
   "main": "dist/index.js",
   "scripts": {
-    "prepublish": "mkdir -p dist && babel src/index.jsx -u -o dist/index.js --stage 1",
-    "pages": "git subtree push --prefix gh-pages origin gh-pages",
+    "start": "webpack-dev-server",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "files": [
+    "dist"
+  ],
+  "browserslist": "last 2 versions, ie 11",
+  "babel": {
+    "presets": [
+      "env",
+      "react",
+      "stage-2"
+    ],
+    "plugins": [
+      "transform-class-properties",
+      "transform-object-rest-spread"
+    ]
   },
   "keywords": [
     "react",
@@ -18,6 +32,21 @@
   "author": "javierbyte",
   "license": "ISC",
   "dependencies": {
-    "eases": "^1.0.6"
+    "eases": "^1.0.8"
+  },
+  "devDependencies": {
+    "html-webpack-plugin": "^2.30.1",
+    "path": "^0.12.7",
+    "react": "^16.1.0",
+    "react-dom": "^16.1.0",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.4",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "prop-types": "^15.6.0"
   }
 }
