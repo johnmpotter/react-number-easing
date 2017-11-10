@@ -1,4 +1,4 @@
-Forked project, using React class
+Forked project - using React.Component
 
 ## Usage.
 
