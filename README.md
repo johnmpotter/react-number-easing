@@ -3,7 +3,7 @@ Forked project, using React class
 ## Usage.
 
 ```jsx
-import NumberEasing from 'react-number-easing';
+import NumberEasing from './react-number-easing.jsx';
 
 <NumberEasing
   value={15}
