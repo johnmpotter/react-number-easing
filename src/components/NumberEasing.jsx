@@ -4,12 +4,11 @@
   Refactored to use React class.
 */
 
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'; // eslint-disable-line
+import PropTypes from 'prop-types'; // eslint-disable-line
 import eases from 'eases';
 
 export default class NumberEasing extends React.Component {
-
   static propTypes = {
     value: PropTypes.any.isRequired,
     speed: PropTypes.number,
@@ -29,7 +28,7 @@ export default class NumberEasing extends React.Component {
 
     this.timeout = null;
     this.startAnimationTime = null;
-    let value = parseInt(props.value, 10);
+    const value = parseInt(props.value, 10);
     this.state = {
       previousValue: value,
       displayValue: value,
@@ -37,7 +36,7 @@ export default class NumberEasing extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    let value = parseInt(this.props.value, 10);
+    const value = parseInt(this.props.value, 10);
 
     if (parseInt(nextProps.value, 10) === value) {
       return;
@@ -47,7 +46,7 @@ export default class NumberEasing extends React.Component {
       previousValue: this.state.displayValue,
     });
 
-    if (!isNaN(parseInt(this.props.delayValue, 10))) {
+    if (!window.isNaN(parseInt(this.props.delayValue, 10))) {
       this.delayTimeout = setTimeout(() => {
         this.startAnimationTime = new Date().getTime();
         this.updateNumber();
@@ -63,15 +62,17 @@ export default class NumberEasing extends React.Component {
   }
 
   updateNumber = () => {
-    let value = parseInt(this.props.value, 10);
+    const value = parseInt(this.props.value, 10);
 
-    let now = new Date().getTime();
-    let elapsedTime = Math.min(this.props.speed, now - this.startAnimationTime);
-    let progress = eases[this.props.ease](elapsedTime / this.props.speed);
-
-    let currentDisplayValue = Math.round(
-      (value - this.state.previousValue) * progress + this.state.previousValue
+    const now = new Date().getTime();
+    const elapsedTime = Math.min(
+      this.props.speed,
+      now - this.startAnimationTime,
     );
+    const progress = eases[this.props.ease](elapsedTime / this.props.speed);
+
+    const currentDisplayValue = Math
+      .round(((value - this.state.previousValue) * progress) + this.state.previousValue);
 
     this.setState({
       displayValue: currentDisplayValue,
@@ -84,7 +85,7 @@ export default class NumberEasing extends React.Component {
         previousValue: value,
       });
     }
-  }
+  };
 
   componentWillUnmount() {
     clearTimeout(this.timeout);
@@ -92,13 +93,20 @@ export default class NumberEasing extends React.Component {
   }
 
   render() {
-
-    let { className, useLocaleString, value, speed, ease, delayValue, ...other } = this.props;
-    let { displayValue } = this.state;
+    const {
+      className,
+      useLocaleString,
+      value,
+      speed,
+      ease,
+      delayValue,
+      ...other
+    } = this.props;
+    const { displayValue } = this.state;
 
     let classes = 'react-number-easing';
     if (className) {
-      classes += ' ' + className;
+      classes += ` ${className}`;
     }
 
     return (
